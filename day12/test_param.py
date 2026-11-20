@@ -15,8 +15,8 @@ def load_cases(path):
 BASE_DIR = Path(__file__).parent #本.py文件所在目录
 cases = load_cases(BASE_DIR/"cases.yaml") #模块及执行，pytest收集阶段就读好数据
 
-@pytest.mark.parametrize("case",cases)#五条数据展开成五条测试，参数名必须跟下面一致
+@pytest.mark.parametrize("case",cases,ids=[case["name"] for case in cases])#五条数据展开成五条测试，参数名必须跟下面一致
 def test_bili_api(case):#case=列表里的某一条dict
     resp = requests.get(case["url"],headers=HEADERS,timeout=5)#url来自数据，代码不知道具体接口
     body = resp.json()#响应字符串变成字典
-    assert body["code"] == case["expect_code"]#业务码对比
+    assert body["code"] == case["expect_code"]

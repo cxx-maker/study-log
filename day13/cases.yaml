@@ -1,0 +1,15 @@
+- name: 测试是否登录码
+  url: https://api.bilibili.com/x/web-interface/nav
+  expect_code: 0
+- name: 测试业务码
+  url: https://api.bilibili.com/x/vip/ads/materials
+  expect_code: 0
+- name: 业务码
+  url: https://api.bilibili.com/x/vip/ads/materials
+  expect_code: 0
+- name: 业务码
+  url: https://api.bilibili.com/x/vip/ads/materials
+  expect_code: 0
+- name: 业务码
+  url: https://api.bilibili.com/x/vip/ads/materials
+  expect_code: 0
